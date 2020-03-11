@@ -1,0 +1,120 @@
+
+
+
+
+
+<style>
+ .new{
+  width: 40%;
+  
+}
+.new1{
+  width: 40%; 
+} 
+.ln{
+  border: 1px solid black;
+}
+
+
+
+
+</style>
+
+<a href="/dashboard" class="btn btn-link mb-2">Back</a>
+
+<div class="row mt-6">
+    <div class="col-md-10 m-auto">
+      <div class="card card-body">
+        <% include ./partials/messages %>
+        <form action="/patient/update" method="POST">
+            <div class="form-inline bx">
+                <label class="lab"  for="name">Name:</label> &nbsp;
+                <!-- <span><%= emp.name %></span> -->
+                <input
+                  style="margin-left: 15px;"
+                  type="name"
+                  id="name"
+                  name="name"
+                  value="<%= emp.name %>"
+                  class="form-control mb-2 new"
+  
+                  value="<%= typeof name != 'undefined' ? name : '' %>"
+                />
+            <label class="lab1" style="margin-left: 20%;" for="email">Email:</label>&nbsp;
+            <input
+              style="margin-left: 32px;"
+              type="email"
+              id="email"
+              value="<%= emp.email %>"
+              name="email"
+              class="form-control mb-2 new1"
+
+              value="<%= typeof email != 'undefined' ? email : '' %>"
+            />
+          </div><br>
+
+
+          <div class="form-inline bx">
+            <label class="lab"   for="name">Age:</label> &nbsp;
+            <input
+              style=" margin-left: 30px;"
+              type="age"
+              id="age"
+              value="<%= emp.age %>"
+              name="age"
+              class="form-control mb-2 new"
+              value="<%= typeof age != 'undefined' ? age : '' %>"
+            />
+        <label class="lab1" style="margin-left: 20%;" for="email">Mobile No:</label>&nbsp;
+        <input
+          type="mobile"
+          id="mobile"
+          name="mobile"
+          value="<%= emp.mobile %>"
+          class="form-control mb-2 new1"
+          value="<%= typeof mobile != 'undefined' ? mobile : '' %>"
+        />
+      </div><br>
+
+
+
+          <div class="form-inline bx">
+            <label class="lab" for="location">Location:</label><br>
+            <input
+              style="margin-left: 5px;"
+              type="location"
+              id="location"
+              value="<%= emp.location %>"
+              name="location"
+              class="form-control new"
+        
+              value="<%= typeof location != 'undefined' ? location : '' %>"
+            />
+          </div><br><br>
+          <hr class="ln">
+          <hr class="ln"><br>
+
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <input
+            style="margin-left: 5px; width: 96%; height: 150px;"
+            type="description"
+            id="description"
+            value="<%= emp.description %>"
+            name="description"
+            class="form-control new"
+            
+            value="<%= typeof description != 'undefined' ? description : '' %>"
+          />
+          </div>
+
+          <div style="margin-left: 70%">
+          <!-- <button type="submit" class="btn btn-success  mb-2">Update</button> -->
+        </form>
+          <!-- <button  class="btn btn-secondary  mb-2">Print</button>
+          <button  class="btn btn-primary  mb-2">Send</button>
+        </div>
+        
+      </div>
+      </div>
+      </div>

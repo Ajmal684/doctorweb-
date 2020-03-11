@@ -1,0 +1,22 @@
+<a href="/users/login" class="btn btn-link mb-2">Back</a>
+<div class="row mt-5">
+
+    <div class="col-md-4 m-auto">
+        <% include ./partials/messages %>
+        <form action="/forgot/checkUser" method="POST">
+            <div class="card card-body text-center">
+
+                <h3>Reset Your Password</h3>
+                <p>Enter your e-mail Id:-</p>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+                    value="<%= typeof email != 'undefined' ? email : '' %>" />
+                <br>
+                  
+                <button type="submit" class="btn btn-info btn-block">
+                    Send Link
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>

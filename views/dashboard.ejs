@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstapcdn.com/4.3.1/css/bootstap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstap4.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background: url("../public/image/cl.jpg")
+    }
+    .dataTables_filter{
+      float: right;
+    }
+    .dataTables_length{
+      float: left;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    #mytable_paginate{
+      float: right;
+      margin-top: 10px;
+    }
+    .dataTables_info{
+      float: left;
+      margin-top: 10px;
+    }
+    .custom-select {
+      width: 68px;
+    }
+    .icn{
+      float: right;
+      margin-top: 5px;
+    }
+    .sorting{
+      width: 116px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="/users/logout" class="btn btn-warning" style="float: right; margin-top: 10px; color: black">Logout</a><br>
+  <a href="/update" style="text-align: right">Update Password</a>
+  <p class="lead mb-3"><span style="color: wheat">Welcome <%= user.name %></span></p>
+  <a href="/patient/add" class="btn btn-primary  mb-2">Add Patient</a><br><br>
+ 
+
+  <form action="/dashboard" method="POST">
+
+    <div class="card card-body new" id="myDiv">
+
+
+
+      <div class="card card-body">
+
+        <h3>Patient Details:-</h3>
+        <table class="table table-striped" style="border: 1px solid" id="mytable">
+          <thead>
+          <tr style="border: 1px solid">
+            <th style="border: 1px solid" class="mb-3">Patient-id &nbsp; <i class="fas fa-sort icn"></i> &nbsp;&nbsp;<br></th>
+
+            <th style="border: 1px solid; width: 86px;" class="mb-3">Name &nbsp; <i class="fas fa-sort icn"></i>&nbsp;&nbsp; </th>
+            <!-- <th style="border: 1px solid">Date &nbsp; <i class="fas fa-sort icn"></i> <br></th> -->
+            <th style="border: 1px solid">age &nbsp; <i class="fas fa-sort icn"></i>&nbsp;&nbsp; </th>
+            <th style="border: 1px solid">mobile &nbsp; <i class="fas fa-sort icn"></i> &nbsp;&nbsp;</th>
+            <th style="border: 1px solid">Email &nbsp; <i class="fas fa-sort icn"></i> &nbsp;&nbsp;</th>
+             <!-- <th style="border: 1px solid"></th>  -->
+          </tr>
+        </thead>
+        <tbody >
+            <!-- <a  style="color: black; text-decoration: none;" href="/patient/view"></a> -->
+          <% for(var i=0; i < emp.length; i++) { %>
+          <tr  style="border: 1px solid">
+              
+            <td   style="border: 1px solid" id="demo" ><a style="cursor: pointer; color: black;"  href="/patient/view/<%= emp[i].user_Id %>"> <%= emp[i].user_Id %> </a>  </td>
+            <td style="border: 1px solid" ><a style="cursor: pointer; color: black;"  href="/patient/view/<%= emp[i].user_Id %>"><%= emp[i].name %></a></td>
+            <!-- <td style="border: 1px solid" ><%= emp[i].date %></td> -->
+            <td style="border: 1px solid" ><a style="cursor: pointer; color: black;"  href="/patient/view/<%= emp[i].user_Id %>"><%= emp[i].age %> </a></td>
+            <td style="border: 1px solid" ><a style="cursor: pointer; color: black;"  href="/patient/view/<%= emp[i].user_Id %>"><%= emp[i].mobile %> </a></td>
+            <td style="border: 1px solid" ><a style="cursor: pointer; color: black;"  href="/patient/view/<%= emp[i].user_Id %>"><%= emp[i].email %> </a></td>
+            <!-- <td  style="border: 1px solid"><a onclick="myfunction(this)" href="/patient/view/<%= emp[i].user_Id %>"><i class="fas fa-user-edit"></i></a></td> -->
+        
+          </tr>
+          <% } %>
+        </a>
+        </tbody>
+        </table>
+      </div>
+  </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.dataTables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $('#mytable').DataTable();
+  </script>
+  <!-- <script>
+  $("#mytable tr").click(function(){
+   $(this).addClass('selected').siblings().removeClass('selected');    
+   var value=$(this).find('td:first').html();
+  // alert(value);   
+   id = value; 
+   alert(id)
+});
+  </script> -->
+</body>
+
+</html>
